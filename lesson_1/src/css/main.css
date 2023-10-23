@@ -1,0 +1,93 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;600&display=swap");
+body {
+  max-width: 1200px;
+  height: 720px;
+  margin: 0 auto;
+  font-family: 'Inter', sans-serif; }
+
+.header {
+  margin-top: 20px; }
+  .header .section__header {
+    display: grid;
+    grid-auto-rows: 247px auto;
+    grid-template-areas: 'block__1--title block__2--hat block__3--afro block__4--women' 'block__1--title block__2--hat block__3--doors block__4--women' 'block__1--title block__2--hat block__3--doors block__4--men' 'block__1--subtitle block__2--coffee block__3--doors block__4--men';
+    grid-template-columns: 458px 364px 226px 232px; }
+    .header .section__header .header__block--1 .block__1--title {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      grid-area: block__1--title;
+          -ms-flex-direction: column;
+              flex-direction: column;
+              align-items: center;
+          justify-content: space-around;
+
+      height: 473px;
+
+      background-color: #f9f9f9;
+
+      -webkit-box-align: center;
+      -webkit-box-direction: normal;
+      -webkit-box-orient: vertical;
+          -ms-flex-align: center;
+      -ms-flex-pack: distribute; }
+      .header .section__header .header__block--1 .block__1--title .block__1--company h1 {
+        width: 330px;
+        font-size: 64px;
+        font-weight: 600;
+        color: #000; }
+      .header .section__header .header__block--1 .block__1--title .block__1--icons {
+        cursor: pointer;
+
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        gap: 20px;
+                align-items: center;
+
+        -webkit-box-align: center;
+            -ms-flex-align: center; }
+    .header .section__header .header__block--1 .block__1--subtitle {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      grid-area: block__1--subtitle;
+              align-items: center;
+              justify-content: center;
+
+      height: 247px;
+
+      background-color: #828282;
+
+      -webkit-box-align: center;
+      -webkit-box-pack: center;
+          -ms-flex-align: center;
+          -ms-flex-pack: center; }
+      .header .section__header .header__block--1 .block__1--subtitle p {
+        width: 345px;
+        font-size: 18px;
+        font-weight: 300;
+        color: #f2f2f2; }
+    .header .section__header .header__block--2 .block__2--hat {
+      grid-area: block__2--hat;
+      height: 473px; }
+    .header .section__header .header__block--2 .block__2--coffee {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      grid-area: block__2--coffee;
+
+      height: 247px; }
+    .header .section__header .header__block--3 .block__3--afro {
+      grid-area: block__3--afro;
+      height: 288px; }
+    .header .section__header .header__block--3 .block__3--doors {
+      grid-area: block__3--doors;
+      height: 433px; }
+    .header .section__header .header__block--4 .block__4--women {
+      grid-area: block__4--women;
+      height: 288px; }
+    .header .section__header .header__block--4 .block__4--men {
+      grid-area: block__4--men; }
+      .header .section__header .header__block--4 .block__4--men .block__4--rectangle {
+        height: 185px; }
