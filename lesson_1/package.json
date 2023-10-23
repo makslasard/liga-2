@@ -1,0 +1,11 @@
+{
+	"devDependencies": {
+		"prettier": "^3.0.3",
+		"stylelint": "^15.11.0",
+		"stylelint-config-clean-order": "^5.2.0"
+	},
+	"scripts": {
+		"lint-css": "npx stylelint **/*.css --fix",
+		"lint-scss": "npx stylelint **/*.scss --fix"
+	}
+}
