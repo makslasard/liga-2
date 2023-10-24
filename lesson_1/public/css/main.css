@@ -1,93 +1,84 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;600&display=swap");
 body {
+  font-family: 'Inter', sans-serif;
   max-width: 1200px;
   height: 720px;
-  margin: 0 auto;
-  font-family: 'Inter', sans-serif; }
+  margin: 0 auto; }
 
-.header {
+main {
   margin-top: 20px; }
-  .header .section__header {
+  main .section__gallery {
     display: grid;
+    grid-template-columns: 458px 364px 226px 232px;
     grid-auto-rows: 247px auto;
-    grid-template-areas: 'block__1--title block__2--hat block__3--afro block__4--women' 'block__1--title block__2--hat block__3--doors block__4--women' 'block__1--title block__2--hat block__3--doors block__4--men' 'block__1--subtitle block__2--coffee block__3--doors block__4--men';
-    grid-template-columns: 458px 364px 226px 232px; }
-    .header .section__header .header__block--1 .block__1--title {
+    grid-template-areas: 'block__1_title block__2_hat block__3_afro block__4_women' 'block__1_title block__2_hat block__3_doors block__4_women' 'block__1_title block__2_hat block__3_doors block__4_men' 'block__1_subtitle block_2_coffee block__3_doors block__4_men'; }
+    main .section__gallery .gallery__block_1 .gallery__title {
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
-      grid-area: block__1--title;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
           -ms-flex-direction: column;
               flex-direction: column;
-              align-items: center;
+      -ms-flex-pack: distribute;
           justify-content: space-around;
-
-      height: 473px;
-
-      background-color: #f9f9f9;
-
       -webkit-box-align: center;
-      -webkit-box-direction: normal;
-      -webkit-box-orient: vertical;
           -ms-flex-align: center;
-      -ms-flex-pack: distribute; }
-      .header .section__header .header__block--1 .block__1--title .block__1--company h1 {
+              align-items: center;
+      height: 473px;
+      background-color: #f9f9f9;
+      grid-area: block__1_title; }
+      main .section__gallery .gallery__block_1 .gallery__title .gallary__company h1 {
         width: 330px;
         font-size: 64px;
         font-weight: 600;
         color: #000; }
-      .header .section__header .header__block--1 .block__1--title .block__1--icons {
-        cursor: pointer;
-
+      main .section__gallery .gallery__block_1 .gallery__title .gallary__icons {
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
-        gap: 20px;
-                align-items: center;
-
         -webkit-box-align: center;
-            -ms-flex-align: center; }
-    .header .section__header .header__block--1 .block__1--subtitle {
+            -ms-flex-align: center;
+                align-items: center;
+        gap: 20px;
+        cursor: pointer; }
+    main .section__gallery .gallery__block_1 .gallary__subtitle {
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
-      grid-area: block__1--subtitle;
-              align-items: center;
-              justify-content: center;
-
-      height: 247px;
-
-      background-color: #828282;
-
       -webkit-box-align: center;
-      -webkit-box-pack: center;
           -ms-flex-align: center;
-          -ms-flex-pack: center; }
-      .header .section__header .header__block--1 .block__1--subtitle p {
-        width: 345px;
+              align-items: center;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      background-color: #828282;
+      height: 247px;
+      grid-area: block__1_subtitle; }
+      main .section__gallery .gallery__block_1 .gallary__subtitle p {
         font-size: 18px;
-        font-weight: 300;
-        color: #f2f2f2; }
-    .header .section__header .header__block--2 .block__2--hat {
-      grid-area: block__2--hat;
-      height: 473px; }
-    .header .section__header .header__block--2 .block__2--coffee {
+        width: 345px;
+        color: #f2f2f2;
+        font-weight: 300; }
+    main .section__gallery .gallery__block_2 .gallary__image-hat {
+      height: 473px;
+      grid-area: block__2_hat; }
+    main .section__gallery .gallery__block_2 .gallary__image-coffee {
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
-      grid-area: block__2--coffee;
-
-      height: 247px; }
-    .header .section__header .header__block--3 .block__3--afro {
-      grid-area: block__3--afro;
-      height: 288px; }
-    .header .section__header .header__block--3 .block__3--doors {
-      grid-area: block__3--doors;
-      height: 433px; }
-    .header .section__header .header__block--4 .block__4--women {
-      grid-area: block__4--women;
-      height: 288px; }
-    .header .section__header .header__block--4 .block__4--men {
-      grid-area: block__4--men; }
-      .header .section__header .header__block--4 .block__4--men .block__4--rectangle {
+      height: 247px;
+      grid-area: block__2_coffee; }
+    main .section__gallery .gallery__block_3 .gallary__image-afro {
+      height: 288px;
+      grid-area: block__3_afro; }
+    main .section__gallery .gallery__block_3 .gallary__image-doors {
+      height: 433px;
+      grid-area: block__3_doors; }
+    main .section__gallery .gallery__block_4 .gallary__image-women {
+      height: 288px;
+      grid-area: block__4_women; }
+    main .section__gallery .gallery__block_4 .gallary__image-men {
+      grid-area: block__4_men; }
+      main .section__gallery .gallery__block_4 .gallary__image-men .gallary__image-rectangle {
         height: 185px; }
