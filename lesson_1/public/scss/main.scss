@@ -7,30 +7,30 @@ body {
 	margin: 0 auto;
 }
 
-.header {
+main {
 	margin-top: 20px;
 
-	.section__header {
+	.section__gallery {
 		display: grid;
 		grid-template-columns: 458px 364px 226px 232px;
 		grid-auto-rows: 247px auto;
 		grid-template-areas:
-			'block__1--title block__2--hat block__3--afro block__4--women'
-			'block__1--title block__2--hat block__3--doors block__4--women'
-			'block__1--title block__2--hat block__3--doors block__4--men'
-			'block__1--subtitle block__2--coffee block__3--doors block__4--men';
+			'block__1_title block__2_hat block__3_afro block__4_women'
+			'block__1_title block__2_hat block__3_doors block__4_women'
+			'block__1_title block__2_hat block__3_doors block__4_men'
+			'block__1_subtitle block_2_coffee block__3_doors block__4_men';
 
-		.header__block--1 {
-			.block__1--title {
+		.gallery__block_1 {
+			.gallery__title {
 				display: flex;
 				flex-direction: column;
 				justify-content: space-around;
 				align-items: center;
 				height: 473px;
 				background-color: #f9f9f9;
-				grid-area: block__1--title;
+				grid-area: block__1_title;
 
-				.block__1--company {
+				.gallary__company {
 					h1 {
 						width: 330px;
 						font-size: 64px;
@@ -39,7 +39,7 @@ body {
 					}
 				}
 
-				.block__1--icons {
+				.gallary__icons {
 					display: flex;
 					align-items: center;
 					gap: 20px;
@@ -47,13 +47,13 @@ body {
 				}
 			}
 
-			.block__1--subtitle {
+			.gallary__subtitle {
 				display: flex;
 				align-items: center;
 				justify-content: center;
 				background-color: #828282;
 				height: 247px;
-				grid-area: block__1--subtitle;
+				grid-area: block__1_subtitle;
 
 				p {
 					font-size: 18px;
@@ -64,41 +64,41 @@ body {
 			}
 		}
 
-		.header__block--2 {
-			.block__2--hat {
+		.gallery__block_2 {
+			.gallary__image-hat {
 				height: 473px;
-				grid-area: block__2--hat;
+				grid-area: block__2_hat;
 			}
 
-			.block__2--coffee {
+			.gallary__image-coffee {
 				display: flex;
 				height: 247px;
-				grid-area: block__2--coffee;
+				grid-area: block__2_coffee;
 			}
 		}
 
-		.header__block--3 {
-			.block__3--afro {
+		.gallery__block_3 {
+			.gallary__image-afro {
 				height: 288px;
-				grid-area: block__3--afro;
+				grid-area: block__3_afro;
 			}
 
-			.block__3--doors {
+			.gallary__image-doors {
 				height: 433px;
-				grid-area: block__3--doors;
+				grid-area: block__3_doors;
 			}
 		}
 
-		.header__block--4 {
-			.block__4--women {
+		.gallery__block_4 {
+			.gallary__image-women {
 				height: 288px;
-				grid-area: block__4--women;
+				grid-area: block__4_women;
 			}
 
-			.block__4--men {
-				grid-area: block__4--men;
+			.gallary__image-men {
+				grid-area: block__4_men;
 
-				.block__4--rectangle {
+				.gallary__image-rectangle {
 					height: 185px;
 				}
 			}
