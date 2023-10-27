@@ -1,6 +1,6 @@
-import ServiceFetchTasks from "./ServiceFetchTasks.js";
-import TaskController from "./TaskController.js";
-import ServiceXMLTasks from "./ServiceXMLTasks.js";
+import ServiceFetchTasks from "./services/ServiceFetchTasks.js";
+import TaskController from "./controllers/TaskController.js";
+import ServiceXMLTasks from "./services/ServiceXMLTasks.js";
 
 const taskController = new TaskController(ServiceFetchTasks)
 
