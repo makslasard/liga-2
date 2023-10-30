@@ -1,12 +1,15 @@
 export default class ServiceXMLTasks {
+    constructor(_baseUrl) {
+        this._baseUrl = _baseUrl;
+    }
     // GET
-    static async getAllTasks() {
+    getAllTasks = async () => {
         const xhr = new XMLHttpRequest()
 
-        xhr.open('GET', 'http://37.220.80.108/tasks')
+        xhr.open('GET', this._baseUrl, true)
         xhr.setRequestHeader('Content-Type', 'application/json')
 
-        xhr.onload = function() {
+        xhr.onload = function () {
             if (xhr.status === 200) {
                 const response = JSON.parse(xhr.responseText)
                 return response
@@ -19,13 +22,13 @@ export default class ServiceXMLTasks {
     }
 
     // GET/id
-    static async getTaskById(id) {
+    getTaskById = async (id) => {
         const xhr = new XMLHttpRequest()
 
-        xhr.open('GET', `http://37.220.80.108/tasks/${id}`)
+        xhr.open('GET', `${this._baseUrl}/${id}`, true)
         xhr.setRequestHeader('Content-Type', 'application/json')
 
-        xhr.onload = function() {
+        xhr.onload = function () {
             if (xhr.status === 200) {
                 const response = JSON.parse(xhr.responseText)
                 return response
@@ -38,13 +41,13 @@ export default class ServiceXMLTasks {
     }
 
     // DELETE
-    static async deleteTaskById(id) {
+    deleteTaskById = async (id) => {
         const xhr = new XMLHttpRequest()
 
-        xhr.open('DELETE', `http://37.220.80.108/tasks/${id}`)
+        xhr.open('DELETE', `${this._baseUrl}/${id}`, true)
         xhr.setRequestHeader('Content-Type', 'application/json')
 
-        xhr.onload = function() {
+        xhr.onload = function () {
             if (xhr.status === 204) {
                 return true
             } else {
@@ -56,13 +59,13 @@ export default class ServiceXMLTasks {
     }
 
     // POST
-    static async addTask(task) {
+    addTask = async (task) => {
         const xhr = new XMLHttpRequest()
 
-        xhr.open('POST', 'http://37.220.80.108/tasks')
+        xhr.open('POST', this._baseUrl, true)
         xhr.setRequestHeader('Content-Type', 'application/json')
 
-        xhr.onload = function() {
+        xhr.onload = function () {
             if (xhr.status === 201) {
                 const response = JSON.parse(xhr.responseText)
                 return response
@@ -75,13 +78,13 @@ export default class ServiceXMLTasks {
     }
 
     // PATCH
-    static async updateTaskById(id, task) {
+    updateTaskById = async (id, task) => {
         const xhr = new XMLHttpRequest()
 
-        xhr.open('PATCH', `http://37.220.80.108/tasks/${id}`)
+        xhr.open('PATCH', `${this._baseUrl}/${id}`)
         xhr.setRequestHeader('Content-Type', 'application/json')
 
-        xhr.onload = function() {
+        xhr.onload = function () {
             if (xhr.status === 200) {
                 const response = JSON.parse(xhr.responseText)
                 return response
