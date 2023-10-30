@@ -6,20 +6,13 @@ const currentService = new ServiceFetchTasks('http://37.220.80.108/tasks');
 const taskController = new TaskController(currentService);
 
 // Получение всех задач
-const allTasks = taskController.getAllTasks();
-
-// Отображение всех задач в консоли
-console.log('All tasks:', allTasks);
+taskController.getAllTasks();
 
 // Получение задачи по идентификатору
-const taskById = taskController.getTaskById(2);
-
-// Отображение задачи в консоли
-console.log('Task by ID:', taskById);
+taskController.getTaskById(46);
 
 // Удаление задачи по идентификатору
-const deleteTaskById = taskController.deleteTaskById(1);
-console.log('Delete task by ID:', deleteTaskById);
+taskController.deleteTaskById(1);
 
 // Добавление новой задачи
 const newTask = {
@@ -29,16 +22,14 @@ const newTask = {
   isImportant: false,
   name: 'Новая задача',
 };
-const addNewTask = taskController.addTask(newTask);
-console.log('Add new task:', addNewTask);
+taskController.addTask(newTask);
 
 // Обновление задачи
 const updatedTask = {
-  id: 1,
+  id: 22,
   info: 'Обновленная задача',
   isCompleted: true,
   isImportant: false,
   name: 'Это обновленная задача',
 };
-const updateTaskById = taskController.updateTaskById(3, updatedTask);
-console.log('Update task by ID:', updateTaskById);
+taskController.updateTaskById(22, updatedTask);
