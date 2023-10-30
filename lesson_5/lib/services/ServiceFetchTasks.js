@@ -12,7 +12,12 @@ export default class ServiceFetchTasks {
         this._baseUrl = _baseUrl;
         this.getAllTasks = () => __awaiter(this, void 0, void 0, function* () {
             try {
-                const response = yield fetch(this._baseUrl).then((response) => response.json());
+                const response = yield fetch(this._baseUrl)
+                    .then((response) => response.json())
+                    .then((tasks) => {
+                    console.log('All tasks:', tasks);
+                    return tasks;
+                });
                 return response;
             }
             catch (error) {
@@ -22,7 +27,12 @@ export default class ServiceFetchTasks {
         });
         this.getTaskById = (id) => __awaiter(this, void 0, void 0, function* () {
             try {
-                const response = yield fetch(`${this._baseUrl}/${id}`).then((response) => response.json());
+                const response = yield fetch(`${this._baseUrl}/${id}`)
+                    .then((response) => response.json())
+                    .then((task) => {
+                    console.log('Task by ID:', task);
+                    return task;
+                });
                 return response;
             }
             catch (error) {
@@ -35,6 +45,7 @@ export default class ServiceFetchTasks {
                 const response = yield fetch(`${this._baseUrl}/${id}`, {
                     method: 'DELETE',
                 });
+                console.log('Delete task by ID:', response);
                 return response;
             }
             catch (error) {
@@ -51,6 +62,7 @@ export default class ServiceFetchTasks {
                     },
                     body: JSON.stringify(task),
                 });
+                console.log('Add new task:', response);
                 return response.json();
             }
             catch (error) {
@@ -67,6 +79,7 @@ export default class ServiceFetchTasks {
                     },
                     body: JSON.stringify(task),
                 });
+                console.log('Update task by ID:', response);
                 return response.json();
             }
             catch (error) {
