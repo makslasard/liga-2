@@ -5,80 +5,86 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>lesson_1</title>
 		<link rel="stylesheet" href="./css/normalize.min.css" />
-		<link rel="stylesheet" href="./css/adaptive.css" />
 		<link rel="stylesheet" href="./css/main.css" />
-		<!-- Можно подключить минифицированную версию. Текущая для удобства проверяющего -->
-		<!-- Картинки - также есть минифицированная версия -->
 	</head>
 	<body>
-		<!-- Main -->
-		<main role="main">
-			<section id="section__gallery" class="section__gallery" role="group">
-				<!-- gallery__block_1 -->
-				<div class="gallery__block_1">
-					<div class="gallery__title">
-						<div class="gallary__company">
+		<main>
+			<section id="section__gallery" class="gallery">
+				<section class="gallery__block">
+					<div class="gallery__block_wrapper">
+						<div class="gallery__block_title">
 							<h1>COMPANY CULTURE</h1>
 						</div>
-						<div class="gallary__icons">
+
+						<div class="gallery__block_links">
 							<div>
-								<img src="./img/instargam_icon.svg" alt="instargam_icon" />
+								<img src="./img/instargam_icon.svg" alt="instargam icon" />
 							</div>
 							<div>
-								<img src="./img/phone_icon.svg" alt="phone_icon" />
+								<img src="./img/phone_icon.svg" alt="phone icon" />
 							</div>
 							<div>
-								<img src="./img/mail_icon.svg" alt="mail_icon" />
+								<img src="./img/mail_icon.svg" alt="main icon" />
 							</div>
 						</div>
 					</div>
-					<div class="gallary__subtitle">
-						<p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa ultricies
-							aliquam egestas amet mi aliquam. Eu, vel massa elementum nulla.
-						</p>
-					</div>
-				</div>
+				</section>
 
-				<!-- gallery__block_2 -->
-				<div class="gallery__block_2">
-					<div class="gallary__image-hat">
-						<img src="./img/women_in_hat.svg" alt="women_in_hat" />
-					</div>
-					<div class="gallary__image-coffee">
-						<div>
-							<img src="./img/coffee.svg" alt="coffee" />
-						</div>
-						<div>
-							<img src="./img/coffee_color.svg" alt="coffee_color" />
-						</div>
-					</div>
-				</div>
+				<section class="gallery__women_hat">
+					<picture>
+						<source
+							srcset="img/women_in_hat/384x576.webp"
+							media="(max-width: 1200px)"
+						/>
+						<img src="img/women_in_hat/768x1152.webp" alt="women_in_hat" />
+					</picture>
+				</section>
 
-				<!-- gallery__block_3 -->
-				<div class="gallery__block_3">
-					<div class="gallary__image-afro">
-						<img src="./img/women_afro.svg" alt="women_afro" />
-					</div>
-					<div class="gallary__image-doors">
-						<img src="./img/doors.svg" alt="doors" />
-					</div>
-				</div>
+				<section class="gallery__women_afro">
+					<picture>
+						<source srcset="img/women_afro/200x300.webp" media="(max-width: 768px)" />
+						<img src="img/women_afro/400x600.webp" alt="women_afro" />
+					</picture>
+				</section>
 
-				<!-- gallery__block_4 -->
-				<div class="gallery__block_4">
-					<div class="gallary__image-women">
-						<img src="./img/women_asia.svg" alt="women_asia" />
-					</div>
-					<div class="gallary__image-men">
-						<div class="gallary__image-rectangle">
-							<img src="./img/red.svg" alt="red_regtangle" />
-						</div>
-						<div>
-							<img src="./img/men_asia.svg" alt="men_asia" />
-						</div>
-					</div>
-				</div>
+				<section class="gallery__women_asia">
+					<picture>
+						<source srcset="img/women_asia/400x600.webp" media="(max-width: 1200px)" />
+						<img src="img/women_asia/800x1200.webp" alt="women_asia" />
+					</picture>
+				</section>
+
+				<section class="gallery__description">
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa ultricies
+						aliquam egestas amet mi aliquam. Eu, vel massa elementum nulla.
+					</p>
+				</section>
+
+				<section class="gallery__coffee">
+					<picture>
+						<source srcset="./img/coffee/199x247.webp" media="(max-width: 768px)" />
+						<img src="./img/coffee/398x494.webp" alt="coffee" />
+					</picture>
+				</section>
+
+				<section class="gallery__brown"></section>
+
+				<section class="gallery__red"></section>
+
+				<section class="gallery__door">
+					<picture>
+						<source srcset="./img/door/226x432.webp" media="(max-width: 768px)" />
+						<img src="./img/door/452x864.webp" alt="door" />
+					</picture>
+				</section>
+
+				<section class="gallery__man">
+					<picture>
+						<source srcset="./img/man/320x347.webp" media="(max-width: 1200px)" />
+						<img src="./img/man/640x693.webp" alt="man" />
+					</picture>
+				</section>
 			</section>
 		</main>
 	</body>

@@ -1,84 +1,166 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;600&display=swap");
-body {
-  font-family: 'Inter', sans-serif;
-  max-width: 1200px;
-  height: 720px;
-  margin: 0 auto; }
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;600&display=swap');
 
-main {
-  margin-top: 20px; }
-  main .section__gallery {
-    display: grid;
-    grid-template-columns: 458px 364px 226px 232px;
-    grid-auto-rows: 247px auto;
-    grid-template-areas: 'block__1_title block__2_hat block__3_afro block__4_women' 'block__1_title block__2_hat block__3_doors block__4_women' 'block__1_title block__2_hat block__3_doors block__4_men' 'block__1_subtitle block_2_coffee block__3_doors block__4_men'; }
-    main .section__gallery .gallery__block_1 .gallery__title {
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-orient: vertical;
-      -webkit-box-direction: normal;
-          -ms-flex-direction: column;
-              flex-direction: column;
-      -ms-flex-pack: distribute;
-          justify-content: space-around;
-      -webkit-box-align: center;
-          -ms-flex-align: center;
-              align-items: center;
-      height: 473px;
-      background-color: #f9f9f9;
-      grid-area: block__1_title; }
-      main .section__gallery .gallery__block_1 .gallery__title .gallary__company h1 {
-        width: 330px;
-        font-size: 64px;
-        font-weight: 600;
-        color: #000; }
-      main .section__gallery .gallery__block_1 .gallery__title .gallary__icons {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-align: center;
-            -ms-flex-align: center;
-                align-items: center;
-        gap: 20px;
-        cursor: pointer; }
-    main .section__gallery .gallery__block_1 .gallary__subtitle {
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-align: center;
-          -ms-flex-align: center;
-              align-items: center;
-      -webkit-box-pack: center;
-          -ms-flex-pack: center;
-              justify-content: center;
-      background-color: #828282;
-      height: 247px;
-      grid-area: block__1_subtitle; }
-      main .section__gallery .gallery__block_1 .gallary__subtitle p {
-        font-size: 18px;
-        width: 345px;
-        color: #f2f2f2;
-        font-weight: 300; }
-    main .section__gallery .gallery__block_2 .gallary__image-hat {
-      height: 473px;
-      grid-area: block__2_hat; }
-    main .section__gallery .gallery__block_2 .gallary__image-coffee {
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      height: 247px;
-      grid-area: block__2_coffee; }
-    main .section__gallery .gallery__block_3 .gallary__image-afro {
-      height: 288px;
-      grid-area: block__3_afro; }
-    main .section__gallery .gallery__block_3 .gallary__image-doors {
-      height: 433px;
-      grid-area: block__3_doors; }
-    main .section__gallery .gallery__block_4 .gallary__image-women {
-      height: 288px;
-      grid-area: block__4_women; }
-    main .section__gallery .gallery__block_4 .gallary__image-men {
-      grid-area: block__4_men; }
-      main .section__gallery .gallery__block_4 .gallary__image-men .gallary__image-rectangle {
-        height: 185px; }
+body {
+	max-width: 1280px;
+	margin: 0 auto;
+	font-family: 'Inter', sans-serif;
+}
+
+img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.gallery {
+	display: grid;
+	grid-template-areas:
+		'gallery gallery image_hat image_hat image_afro image_asia'
+		'gallery gallery image_hat image_hat door red'
+		'desc desc coffee brown door man';
+	grid-template-columns: 1fr 1fr 200px 165px 225px 230px;
+	grid-template-rows: 288px 185px 248px;
+
+	width: 100%;
+}
+
+.gallery__block {
+	grid-area: gallery;
+}
+
+.gallery__block_wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+
+	width: 100%;
+	height: 100%;
+
+	text-align: center;
+}
+
+.gallery__block .gallery__block_title {
+	display: flex;
+	justify-content: center;
+
+	max-width: 330px;
+
+	font-size: 64px;
+	font-weight: 600;
+	text-align: left;
+}
+
+.gallery__block_links {
+	display: flex;
+	gap: 24px;
+	align-items: center;
+}
+
+.gallery__women_hat {
+	grid-area: image_hat;
+}
+
+.gallery__women_afro {
+	grid-area: image_afro;
+}
+
+.gallery__women_asia {
+	grid-area: image_asia;
+}
+
+.gallery__description {
+	display: flex;
+	grid-area: desc;
+	align-items: center;
+	justify-content: center;
+
+	font-size: 18px;
+	color: #f2f2f2;
+
+	background-color: #828282;
+}
+
+.gallery__description p {
+	width: 345px;
+}
+
+.gallery__coffee {
+	grid-area: coffee;
+}
+
+.gallery__brown {
+	grid-area: brown;
+	background-color: #a6806b;
+}
+
+.gallery__red {
+	grid-area: red;
+	background-color: #a61c1c;
+}
+
+.gallery__door {
+	grid-area: door;
+}
+
+.gallery__man {
+	grid-area: man;
+}
+
+@media (max-width: 1200px) {
+	.gallery {
+		display: grid;
+		grid-template-areas:
+			'gallery gallery image_hat image_afro'
+			'gallery gallery image_hat image_afro'
+			'desc desc man red'
+			'door image_asia coffee brown'
+			'door image_asia coffee brown';
+		grid-template-columns: repeat(4, 1fr);
+		grid-template-rows: repeat(2, 200px) 300px 200px 200px;
+	}
+}
+
+@media (max-width: 768px) {
+	.gallery {
+		display: grid;
+		grid-template-areas:
+			'gallery gallery image_hat image_asia'
+			'gallery gallery image_afro image_asia'
+			'desc desc desc coffee'
+			'man red door brown';
+		grid-template-columns: repeat(4, 1fr);
+		grid-template-rows: repeat(3, 220px) 1fr;
+	}
+
+	.gallery__block .gallery__block_title {
+		max-width: 30%;
+		font-size: 36px;
+		text-align: center;
+	}
+}
+
+@media (max-width: 320px) {
+	.gallery {
+		display: grid;
+		grid-template-areas:
+			'gallery image_hat'
+			'desc desc'
+			'image_afro image_asia'
+			'man coffee'
+			'door brown'
+			'red red';
+		grid-template-columns: 50% 50%;
+		grid-template-rows: repeat(2, 250px) repeat(4, 1fr);
+	}
+
+	.gallery__block .gallery__block_title {
+		max-width: 80%;
+		font-size: 60px;
+		text-align: center;
+	}
+
+	.gallery__block_links {
+		height: 12px;
+	}
+}
