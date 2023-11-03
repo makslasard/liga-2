@@ -40,7 +40,7 @@
     "inlineSourceMap": false,
     "declarationMap": false,
     "incremental": true,
-    "baseUrl": ".",
+    "baseUrl": "./",
     "paths": {
       "__mocks__/*": [
         "src/__mocks__/*"

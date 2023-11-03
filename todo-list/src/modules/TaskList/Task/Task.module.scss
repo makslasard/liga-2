@@ -1,0 +1,41 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 15px;
+  margin-bottom: 20px;
+  width: 830px;
+  height: 100px;
+
+  border: 2px solid teal;
+
+  .info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    .numberTask {
+      span {
+        font-size: 23px;
+        font-weight: bold;
+      }
+    }
+
+    .title {
+      h3 {
+        font-size: 26px;
+        font-weight: normal;
+      }
+    }
+  }
+
+  .description {
+  }
+
+  .buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 10px;
+  }
+}

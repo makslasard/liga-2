@@ -1,0 +1,21 @@
+.wrapper {
+  h2 {
+    margin-bottom: 20px;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .newTask {
+    }
+
+    .descriptionTask {
+    }
+
+    .button {
+      width: 200px;
+    }
+  }
+}

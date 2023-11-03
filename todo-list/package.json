@@ -9,11 +9,11 @@
     }
   },
   "scripts": {
-    "dev": "webpack serve --progress --config ./config/webpack.config.dev.js",
-    "build": "webpack --mode=production --progress --config ./config/webpack.config.prod.js ",
-    "watch": "webpack --progress=profile --config ./config/webpack.config.watch.js",
-    "lint:styles": "stylelint ./src/**/*.css",
-    "fix:styles": "stylelint --fix ./src/**/*.css",
+    "dev": "webpack serve --progress --config config/webpack.config.dev.js",
+    "build": "webpack --mode=production --progress --config config/webpack.config.prod.js ",
+    "watch": "webpack --progress=profile --config config/webpack.config.watch.js",
+    "lint:styles": "stylelint src/**/*.css",
+    "fix:styles": "stylelint --fix src/**/*.css",
     "lint:ts": "eslint src/**/*.{ts,tsx}",
     "fix:ts": "eslint src/**/*.{ts,tsx} --quiet --fix"
   },
