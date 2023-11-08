@@ -1,0 +1,108 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 15px;
+  margin-bottom: 20px;
+  gap: 20px;
+  width: 830px;
+  height: 100%;
+
+  border: 2px solid teal;
+
+  .wrapperInfo {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    .completedTask {
+      height: 30px;
+      width: 30px;
+    }
+  }
+
+  .info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    .numberTask {
+      span {
+        font-size: 23px;
+        font-weight: bold;
+      }
+    }
+
+    .title {
+      h3 {
+        font-size: 26px;
+        font-weight: normal;
+      }
+    }
+  }
+
+  .description {
+  }
+
+  .buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 10px;
+  }
+}
+
+.completed {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 15px;
+  margin-bottom: 20px;
+  gap: 20px;
+  width: 830px;
+  height: 100%;
+  opacity: 0.2;
+
+  border: 2px solid teal;
+
+  .wrapperInfo {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    .completedTask {
+      height: 30px;
+      width: 30px;
+    }
+  }
+
+  .info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    .numberTask {
+      span {
+        font-size: 23px;
+        font-weight: bold;
+      }
+    }
+
+    .title {
+      h3 {
+        font-size: 26px;
+        font-weight: normal;
+      }
+    }
+  }
+
+  .description {
+  }
+
+  .buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 10px;
+  }
+}
