@@ -14,6 +14,12 @@
     .descriptionTask {
     }
 
+    .checkbox {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
     .button {
       width: 200px;
     }

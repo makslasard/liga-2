@@ -1,9 +1,31 @@
-.input {
-  width: 100%;
-  padding: 5px 15px;
-  border: 1px solid teal;
+.wrapper {
+  position: relative;
 
-  &:focus {
-    outline: none;
+  .input {
+
+    width: 100%;
+    padding: 5px 15px;
+    border: 1px solid teal;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .buttonDelete {
+    position: absolute;
+    top: -4px;
+    right: 0;
+    border: none;
+    background-color: transparent;
+    transition: all 0.3s;
+
+    span {
+      color: black;
+      font-size: 24px;
+    }
+
   }
 }
+
+
