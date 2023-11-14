@@ -1,0 +1,30 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  .buttonPagination {
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    background-color: #fff;
+
+    &:hover {
+      background-color: #ced4da;
+      color: #fff;
+      cursor: pointer;
+      transition: all 0.3s;
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    }
+  }
+
+  .buttonPaginationActive {
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    background-color: #ced4da;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  }
+
+}

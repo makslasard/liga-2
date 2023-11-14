@@ -1,0 +1,59 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.checkboxs {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  .checkboxImportant {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .checkboxCompleted {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+
+  .buttonSubmit {
+    width: 200px;
+    padding: 5px 15px;
+    border: 1px solid teal;
+    color: #fff;
+    background-color: teal;
+
+    &:hover {
+      transition: all 0.3s;
+      cursor: pointer;
+      background-color: #fff;
+      color: teal;
+    }
+  }
+
+  .buttonReset {
+    width: 200px;
+    padding: 5px 15px;
+    border: 1px solid sandybrown;
+    color: #fff;
+    background-color: sandybrown;
+
+    &:hover {
+      transition: all 0.3s;
+      cursor: pointer;
+      border: 1px solid sandybrown;
+      background-color: #fff;
+      color: sandybrown;
+    }
+  }
+}
