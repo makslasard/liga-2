@@ -1,21 +1,29 @@
-import React from 'react';
-import { CheckboxProps } from './Checkbox.types';
+import React, { useState } from 'react';
 
-export function Checkbox({ label, checked, onChange, disabled, containerClassName = '' }: CheckboxProps) {
+import styles from './Checkbox.module.scss';
+
+export const Checkbox: React.FC<{
+  onChange?: (isChecked: boolean) => void;
+  className?: string;
+  isChecked?: boolean;
+}> = ({ onChange, className }) => {
+  const [isChecked, setIsChecked] = useState(false);
+
   return (
-    <div className={`form-check mb-3 ${containerClassName}`}>
-      <input
-        className="form-check-input"
-        type="checkbox"
-        value=""
-        id={label}
-        disabled={disabled}
-        checked={checked}
-        onChange={onChange}
-      />
-      <label className="form-check-label" htmlFor={label}>
-        {label}
-      </label>
+    <div className={styles.wrapper} role="checkbox" aria-label="Важная задача">
+      <div>
+        <input
+          type="checkbox"
+          className={className}
+          checked={isChecked}
+          onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+            setIsChecked(event.target.checked);
+            if (onChange) {
+              onChange(event.target.checked);
+            }
+          }}
+        />
+      </div>
     </div>
   );
-}
+};
