@@ -2,12 +2,14 @@ import React from 'react';
 
 import styles from './Button.module.scss';
 
-export const Button: React.FC<{ children: React.ReactNode; onClick?: () => void; disabled?: boolean }> = ({
-  children,
-  onClick,
-}) => {
+export const Button: React.FC<{
+  children: React.ReactNode;
+  type: 'button' | 'submit' | 'reset' | undefined;
+  onClick?: () => void;
+  disabled?: boolean;
+}> = ({ children, onClick, type, disabled }) => {
   return (
-    <button type="button" className={styles.button} onClick={onClick}>
+    <button type={type} className={styles.button} onClick={onClick} disabled={disabled}>
       {children}
     </button>
   );

@@ -1,7 +1,8 @@
 import { ITask } from '../../../types/Task/Task.types';
 
 export interface IAllTaskState {
-  currentTaskById: ITask;
+  currentTaskById: ITask[] | null;
   allTasks: ITask[];
-  filteredTasks: ITask[];
+  isLoading: boolean;
+  errorMessage: string;
 }

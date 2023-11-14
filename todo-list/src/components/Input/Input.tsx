@@ -5,11 +5,12 @@ import styles from './Input.module.scss';
 export const Input: React.FC<{
   placeholder?: string;
   type: string;
+  checked?: boolean;
   value?: string;
   className?: string;
   onClear?: () => void;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-}> = ({ placeholder, onChange, value = '', onClear, type }) => {
+}> = ({ placeholder, onChange, value = '', onClear, type, checked }) => {
   const [inputValue, setInputValue] = useState(value);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -30,6 +31,7 @@ export const Input: React.FC<{
     <div className={styles.wrapper}>
       <input
         type={type}
+        checked={checked}
         value={inputValue}
         className={styles.input}
         placeholder={placeholder}

@@ -1,7 +1,7 @@
 export interface ITask {
-  id: number;
-  title: string;
-  description: string;
+  id?: number;
+  name: string;
+  info: string;
   isCompleted: boolean;
   isImportant: boolean;
 }

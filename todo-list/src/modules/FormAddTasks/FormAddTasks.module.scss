@@ -1,27 +1,59 @@
-.wrapper {
-  h2 {
-    margin-bottom: 20px;
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.checkboxs {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  .checkboxImportant {
+    display: flex;
+    align-items: center;
+    gap: 10px;
   }
 
-  .form {
+  .checkboxCompleted {
     display: flex;
-    flex-direction: column;
+    align-items: center;
     gap: 10px;
+  }
+}
 
-    .newTask {
+.buttons {
+  display: flex;
+  justify-content: space-between;
+
+  .buttonSubmit {
+    width: 200px;
+    padding: 5px 15px;
+    border: 1px solid teal;
+    color: #fff;
+    background-color: teal;
+
+    &:hover {
+      transition: all 0.3s;
+      cursor: pointer;
+      background-color: #fff;
+      color: teal;
     }
+  }
 
-    .descriptionTask {
-    }
+  .buttonReset {
+    width: 200px;
+    padding: 5px 15px;
+    border: 1px solid sandybrown;
+    color: #fff;
+    background-color: sandybrown;
 
-    .checkbox {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .button {
-      width: 200px;
+    &:hover {
+      transition: all 0.3s;
+      cursor: pointer;
+      border: 1px solid sandybrown;
+      background-color: #fff;
+      color: sandybrown;
     }
   }
 }
