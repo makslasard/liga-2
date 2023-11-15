@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { getAllTasks } from '../../api/allTasksApi/allTasksApi';
 import { ChangeMeType } from '../../types/commonTypes';
@@ -15,19 +15,14 @@ export const TaskList: React.FC = () => {
     dispatch<ChangeMeType>(getAllTasks()); // Костыль
   }, [dispatch]);
 
+  const memoizedTasks = useMemo(() => {
+    return allTasks.map((item) => <Task key={item.id} {...item} />);
+  }, [allTasks]);
+
   return (
     <div className={styles.wrapper}>
       <h2>Список задач:</h2>
-      <div className={styles.tasks}>
-        {isLoading === true ? <Loader /> : allTasks.map((item) => <Task key={item.id} {...item} />)}
-      </div>
+      <div className={styles.tasks}>{isLoading === true ? <Loader /> : memoizedTasks}</div>
     </div>
   );
 };
-// {allTasks.length === 0 ? (
-//   <div>
-//     <h3>Список задач пуст!</h3>
-//   </div>
-// ) : (
-//   <div>{isLoading ? <Pagination /> : allTasks.map((item) => <Task key={item.id} {...item} />)}</div>
-// )}

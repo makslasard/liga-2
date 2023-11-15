@@ -1,31 +1,35 @@
 import axios, { AxiosResponse } from 'axios';
-import { ThunkAction } from 'redux-thunk';
-import { AnyAction } from 'redux';
 import { allTasksActions } from '../../store/reducers/allTasks/allTasksSlice';
 import { ITask } from '../../types/Task/Task.types';
-import { AppDispatch, RootState } from '../../store/store';
+import { AppDispatch } from '../../store/store';
+import {
+  DeleteTaskByIdType,
+  GetAllTaskType,
+  GetTaskByIdType,
+  PostNewTaskType,
+  UpdateTaskByIdType,
+} from '../../types/commonTypes';
 import { Constants } from 'constants/constant';
 
 const baseUrl = Constants.BASE_URL;
 
 // Получение всех задач
-export const getAllTasks =
-  (): ThunkAction<Promise<void>, RootState, unknown, AnyAction> => async (dispatch: AppDispatch) => {
-    dispatch(allTasksActions.changeIsLoading({ isLoading: true }));
-    try {
-      const axiosResponse: AxiosResponse = await axios.get<ITask[]>(baseUrl);
-      dispatch(allTasksActions.setTasks({ allTasks: axiosResponse.data }));
-    } catch (e) {
-      dispatch(allTasksActions.setErrorMessage({ message: `Произошла ошибка! - ${e}` }));
-    } finally {
-      dispatch(allTasksActions.changeIsLoading({ isLoading: false }));
-    }
-  };
+export const getAllTasks = () => async (dispatch: AppDispatch) => {
+  dispatch(allTasksActions.changeIsLoading({ isLoading: true }));
+  try {
+    const axiosResponse: AxiosResponse = await axios.get<GetAllTaskType[]>(baseUrl);
+    dispatch(allTasksActions.setTasks({ allTasks: axiosResponse.data }));
+  } catch (e) {
+    dispatch(allTasksActions.setErrorMessage({ message: `Произошла ошибка! - ${e}` }));
+  } finally {
+    dispatch(allTasksActions.changeIsLoading({ isLoading: false }));
+  }
+};
 // Получение задачи по id
 export const getTaskById = (id: number | undefined) => async (dispatch: AppDispatch) => {
   dispatch(allTasksActions.changeIsLoading({ isLoading: true }));
   try {
-    const axiosResponse: AxiosResponse = await axios.get<ITask>(baseUrl, {
+    const axiosResponse: AxiosResponse = await axios.get<GetTaskByIdType>(baseUrl, {
       params: { id },
     });
     dispatch(allTasksActions.setTaskById({ taskById: axiosResponse.data }));
@@ -39,7 +43,7 @@ export const getTaskById = (id: number | undefined) => async (dispatch: AppDispa
 export const setNewTask = (task: Omit<ITask, 'id'>) => async (dispatch: AppDispatch) => {
   dispatch(allTasksActions.changeIsLoading({ isLoading: true }));
   try {
-    const axiosResponse: AxiosResponse = await axios.post<ITask>(baseUrl, {
+    const axiosResponse: AxiosResponse = await axios.post<PostNewTaskType>(baseUrl, {
       ...task,
     });
     dispatch(allTasksActions.addTask({ newTask: task }));
@@ -54,7 +58,7 @@ export const setNewTask = (task: Omit<ITask, 'id'>) => async (dispatch: AppDispa
 export const deleteTaskById = (id: number | undefined) => async (dispatch: AppDispatch) => {
   dispatch(allTasksActions.changeIsLoading({ isLoading: true }));
   try {
-    const axiosResponse: AxiosResponse = await axios.delete(`${baseUrl}/${id}`);
+    const axiosResponse: AxiosResponse = await axios.delete<DeleteTaskByIdType>(`${baseUrl}/${id}`);
     dispatch(allTasksActions.deleteTask({ id: id }));
   } catch (e) {
     dispatch(allTasksActions.setErrorMessage({ message: `Произошла ошибка! - ${e}` }));
@@ -66,7 +70,7 @@ export const deleteTaskById = (id: number | undefined) => async (dispatch: AppDi
 // Обновление задачи по id
 export const updateTaskById = (task: ITask, id: number) => async (dispatch: AppDispatch) => {
   try {
-    const axiosResponse: AxiosResponse = await axios.patch<ITask>(`${baseUrl}/${id}`, {
+    const axiosResponse: AxiosResponse = await axios.patch<UpdateTaskByIdType>(`${baseUrl}/${id}`, {
       ...task,
     });
     dispatch(allTasksActions.updateTask({ updateTask: task }));
@@ -82,7 +86,7 @@ export const updateTaskById = (task: ITask, id: number) => async (dispatch: AppD
 export const getTasksByFilter = (isImportant: boolean, isCompleted: boolean) => async (dispatch: AppDispatch) => {
   dispatch(allTasksActions.changeIsLoading({ isLoading: true }));
   try {
-    const axiosResponse: AxiosResponse<ITask[]> = await axios.get<ITask[]>(baseUrl, {
+    const axiosResponse: AxiosResponse = await axios.get<GetAllTaskType[]>(baseUrl, {
       params: {
         isImportant,
         isCompleted,
@@ -101,7 +105,7 @@ export const getTasksByFilter = (isImportant: boolean, isCompleted: boolean) => 
 export const getTaskBySearchQuery = (name_like: string) => async (dispatch: AppDispatch) => {
   dispatch(allTasksActions.changeIsLoading({ isLoading: true }));
   try {
-    const axiosResponse: AxiosResponse<ITask[]> = await axios.get<ITask[]>(baseUrl, {
+    const axiosResponse: AxiosResponse = await axios.get<ITask[]>(baseUrl, {
       params: {
         name_like,
       },

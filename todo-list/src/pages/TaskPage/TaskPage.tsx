@@ -1,6 +1,5 @@
 import React, { ChangeEvent, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
-import { useParams } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { ITask } from '../../types/Task/Task.types';
 import { updateTaskById } from '../../api/allTasksApi/allTasksApi';
@@ -16,7 +15,6 @@ export const TaskPage: React.FC = () => {
   const [currentStatusChange, setCurrentStatusChange] = useState<boolean>(false);
   const isLoading = useAppSelector((state) => state.allTasks.isLoading);
   const dispatch = useAppDispatch();
-  const { id } = useParams();
 
   const getTaskDefaultValues = (task: ITask[] | null): ChangedTaskForm => {
     return task?.reduce(
@@ -47,12 +45,12 @@ export const TaskPage: React.FC = () => {
       id: defaultValue.id,
       name: data.name,
       info: data.info,
-      isImportant: defaultValue.isImportant,
-      isCompleted: defaultValue.isCompleted,
+      isImportant: data.isImportant,
+      isCompleted: data.isCompleted,
     };
 
-    console.log(changedTask);
     dispatch<ChangeMeType>(updateTaskById(changedTask, defaultValue.id));
+    reset();
   };
 
   return (
@@ -96,10 +94,49 @@ export const TaskPage: React.FC = () => {
                     </div>
                   )}
                 />
-                <div>
+                <div className={styles.checkboxs}>
+                  <Controller
+                    control={control}
+                    name="isImportant"
+                    render={({ field, fieldState: { error } }) => (
+                      <div className="form-group form-check">
+                        <input
+                          checked={field.value}
+                          onChange={onImportantChange}
+                          type="checkbox"
+                          className={`form-check-input ${error?.message ? 'is-invalid' : ''}`}
+                        />
+                        <label htmlFor="isImportant" className="form-check-label">
+                          Важная задача
+                        </label>
+                      </div>
+                    )}
+                  />
+
+                  <Controller
+                    control={control}
+                    name="isCompleted"
+                    render={({ field, fieldState: { error } }) => (
+                      <div className="form-group form-check">
+                        <input
+                          checked={field.value}
+                          onChange={onCompletedChange}
+                          type="checkbox"
+                          className={`form-check-input ${error?.message ? 'is-invalid' : ''}`}
+                        />
+                        <label htmlFor="isCompleted" className="form-check-label">
+                          Выполненная задача
+                        </label>
+                      </div>
+                    )}
+                  />
+                </div>
+
+                <div className={styles.tags}>
                   <div className={styles.importantTag}>{defaultValue.isImportant === true ? <Important /> : ''}</div>
                   <div className={styles.completedTag}>{defaultValue.isCompleted === true ? <Done /> : ''}</div>
                 </div>
+
                 <div className={styles.buttons}>
                   <button type="submit" className={styles.buttonSubmit}>
                     Сохранить

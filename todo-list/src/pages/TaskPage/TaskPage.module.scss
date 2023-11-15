@@ -72,3 +72,26 @@
   }
 }
 
+.checkboxs {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  .checkboxImportant {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .checkboxCompleted {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+}
+
+.tags {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
