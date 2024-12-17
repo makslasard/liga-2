@@ -1,13 +1,11 @@
 import React from 'react';
 
-import { HeaderLayout } from '../layouts/HeaderLayout/HeaderLayout';
-
-import styles from './App.module.scss';
-import { AppRouter } from 'router/AppRouter/AppRouter';
+import './styles/index.scss';
+import { AppRouter } from 'app/providers/router/AppRouter/AppRouter';
 
 export const App: React.FC = () => {
   return (
-    <div className={styles.wrapper}>
+    <div className="page-wrapper">
       <AppRouter />
     </div>
   );

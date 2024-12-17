@@ -15,8 +15,8 @@ const devWebpackConfig = merge(BaseConfig, {
     pathinfo: true,
   },
   devServer: {
-    open: false,
-    hot: false,
+    open: true,
+    hot: true,
     compress: true,
     static: {
       directory: dist,
@@ -56,7 +56,7 @@ const devWebpackConfig = merge(BaseConfig, {
         https: false,
       },
       {
-        reload: false,
+        reload: true,
       }
     ),
   ],
