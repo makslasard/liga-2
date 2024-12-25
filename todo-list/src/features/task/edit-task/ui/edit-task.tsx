@@ -1,15 +1,13 @@
 import React from 'react';
-import { Button, Checkbox } from '@mui/material';
 import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
-import { Tags } from '../../../../shared/ui/Tags/Tags';
 import { updateTaskById } from '../api/updateTaskById';
-import { Input } from '../../../../shared/ui/Input/Input';
 import { IEditTask, IEditTaskProps } from '../types/types';
-import { validationFormAddTask } from '../../create-task/lib/validationFormAddTask';
 import { DeleteTask } from '../../delete-task';
 import styles from 'pages/edit-task/EditTaskPage.module.scss';
-import { createFormHandlers } from 'pages/edit-task/lib/formHandlers';
+import { createFormHandlers } from '@/pages/edit-task/lib/formHandlers';
+import { Input } from '@/shared/ui/Input/Input';
+import { Tags } from '@/shared/ui/Tags/Tags';
+import { Button, Checkbox } from '@mui/material';
 
 export const EditTask: React.FC<IEditTaskProps> = ({ optionEditedTask }) => {
   const { taskId, nameTask, infoTask, importantStatus, completedStatus } = optionEditedTask;
@@ -17,7 +15,7 @@ export const EditTask: React.FC<IEditTaskProps> = ({ optionEditedTask }) => {
   const { handleSubmit, setValue } = useForm<IEditTask>({
     defaultValues: optionEditedTask,
     mode: 'onChange',
-    resolver: yupResolver(validationFormAddTask),
+    // resolver: yupResolver(validationFormAddTask),
   });
 
   const formHandlers = createFormHandlers(setValue);

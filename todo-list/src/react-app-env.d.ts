@@ -56,6 +56,7 @@ declare module '*?as=webp' {
 
 declare module '*.svg' {
   const src: string;
+  // @ts-ignore
   export default src;
 }
 

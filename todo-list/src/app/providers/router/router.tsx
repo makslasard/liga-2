@@ -1,7 +1,8 @@
-import { TaskList } from '../../../features/task/task-list/ui/task-list';
-import { HomePage } from 'pages/home/HomePage';
-import { NotFoundPage } from 'pages/not-found/NotFoundPage';
-import { EditTaskPage } from 'pages/edit-task/EditTaskPage';
+import { HomePage } from '@/pages/home/HomePage';
+import { NotFoundPage } from '@/pages/not-found/NotFoundPage';
+import { TaskList } from '@/features/task/task-list';
+import { EditTaskPage } from '@/pages/edit-task/EditTaskPage';
+
 
 export enum RoutersNames {
   HOME = '/',

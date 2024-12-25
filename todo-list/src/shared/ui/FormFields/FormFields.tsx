@@ -15,17 +15,17 @@ interface FormFieldProps<T extends FieldValues> {
   htmlFor?: string;
 }
 
-const FormField: React.FC<FormFieldProps<any>> = ({
-  control,
-  name,
-  label,
-  type = 'text',
-  placeholder,
-  className,
-  onChange,
-  baseClass,
-  htmlFor,
-}) => {
+const FormField: React.FC<FormFieldProps<T>> = ({
+                                                  control,
+                                                  name,
+                                                  label,
+                                                  type = 'text',
+                                                  placeholder,
+                                                  className,
+                                                  onChange,
+                                                  baseClass,
+                                                  htmlFor,
+                                                }) => {
   return (
     <div className={className}>
       <Controller
