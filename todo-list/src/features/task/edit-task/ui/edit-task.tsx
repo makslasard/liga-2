@@ -3,11 +3,12 @@ import { useForm } from 'react-hook-form';
 import { updateTaskById } from '../api/updateTaskById';
 import { IEditTask, IEditTaskProps } from '../types/types';
 import { DeleteTask } from '../../delete-task';
-import styles from 'pages/edit-task/EditTaskPage.module.scss';
 import { createFormHandlers } from '@/pages/edit-task/lib/formHandlers';
 import { Input } from '@/shared/ui/Input/Input';
 import { Tags } from '@/shared/ui/Tags/Tags';
 import { Button, Checkbox } from '@mui/material';
+
+import styles from './edit-task.module.scss';
 
 export const EditTask: React.FC<IEditTaskProps> = ({ optionEditedTask }) => {
   const { taskId, nameTask, infoTask, importantStatus, completedStatus } = optionEditedTask;

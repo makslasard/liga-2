@@ -5,7 +5,7 @@ import { FilterType } from '../types/types';
 import { getTasksByFilters } from '../api/getTasksByFilter';
 import { filtersTasksActions } from '../model/filtersTasksSlice';
 import styles from './select-filter.module.scss';
-import { useTypedDispatch, useTypedSelector } from 'app/store/types/typedHooks';
+import { useTypedDispatch, useTypedSelector } from '@/app/store/types/typedHooks';
 
 export const SelectFilter: React.FC = () => {
   const filtersList = useTypedSelector((state) => state.filtersTasks.filtersList);

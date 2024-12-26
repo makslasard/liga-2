@@ -1,6 +1,5 @@
 import React from 'react';
 import { Button } from '@mui/material';
-import { ArrowLeft, ArrowRight } from '@mui/x-date-pickers/internals/components/icons';
 import { getTaskPagination } from '../api/getTaskPagination';
 import { generateListPage } from '../lib/generateListPage';
 
@@ -16,7 +15,6 @@ export const PaginationBase: React.FC = () => {
 
   return (
     <div className={styles.paginateWrapper}>
-      <ArrowLeft />
       <div>
         {pageList.map((page) => (
           <>
@@ -24,7 +22,6 @@ export const PaginationBase: React.FC = () => {
           </>
         ))}
       </div>
-      <ArrowRight />
     </div>
   );
 };

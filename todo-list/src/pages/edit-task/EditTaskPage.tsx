@@ -1,16 +1,16 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Loader } from '../../shared/ui/Loader/Loader';
 import FormField from '../../shared/ui/FormFields/FormFields';
-import { Button } from '../../shared/ui/Button/Button';
-import { Tags } from '../../shared/ui/Tags/Tags';
-import { EditTask } from '../../features/task/edit-task';
-import { selectorCurrentTaskById } from '../../features/task/edit-task/model/selectors';
-import { IEditTask } from '../../features/task/edit-task/types/types';
 import styles from './EditTaskPage.module.scss';
-import { useTypedSelector } from 'app/store/types/typedHooks';
-import { TaskFieldNames } from 'pages/edit-task/types/TaskPage.types';
-import { createFormHandlers } from 'pages/edit-task/lib/formHandlers';
+import { createFormHandlers } from '@/pages/edit-task/lib/formHandlers';
+import { TaskFieldNames } from '@/pages/edit-task/types/TaskPage.types';
+import { useTypedSelector } from '@/app/store/types/typedHooks';
+import { IEditTask } from '@/features/task/edit-task/types/types';
+import { selectorCurrentTaskById } from '@/features/task/edit-task/model/selectors';
+import { EditTask } from '@/features/task/edit-task';
+import { Button } from '@mui/material';
+import { Tags } from '@/shared/ui/Tags/Tags';
+import { Loader } from '@/shared/ui/Loader/Loader';
 
 export const EditTaskPage: React.FC = () => {
   const currentTaskById = useTypedSelector(selectorCurrentTaskById);
