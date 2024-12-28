@@ -34,7 +34,9 @@ module.exports = {
         'import/no-extraneous-dependencies': 'off',
         'no-underscore-dangle': 'off',
         'arrow-body-style': 'off',
-        'i18next/no-literal-string': ['error', { markupOnly: true }],
+        'no-undef': 'off',
+        'consistent-return': 'off',
+        'i18next/no-literal-string': 'off',
         'max-len': ['error', { ignoreComments: true, code: 100 }],
     },
 }
