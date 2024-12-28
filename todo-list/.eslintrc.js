@@ -1,53 +1,42 @@
 module.exports = {
-  root: true,
-  overrides: [
-    {
-      files: ['**/*.ts?(x)'],
-      parser: '@typescript-eslint/parser',
-      extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended'],
-      plugins: ['@typescript-eslint'],
-      parserOptions: {
+    extends: [
+        'plugin:react/recommended',
+        'airbnb',
+        'plugin:i18next/recommended',
+        'eslint-config-prettier',
+    ],
+    parser: '@typescript-eslint/parser',
+    parserOptions: {
         ecmaFeatures: {
-          jsx: true,
+            jsx: true,
         },
-        ecmaVersion: 2021,
-        tsconfigRootDir: __dirname,
-        project: ['./tsconfig.json'],
+        ecmaVersion: 'latest',
         sourceType: 'module',
-      },
     },
-  ],
-  env: {
-    browser: true,
-    amd: true,
-    node: true,
-  },
-  extends: [
-    'eslint:recommended',
-    'plugin:import/recommended',
-    'plugin:react/recommended',
-    'plugin:prettier/recommended', // Make sure this is always the last element in the array.
-  ],
-  settings: {
-    react: {
-      version: 'detect',
+    plugins: ['react', '@typescript-eslint', 'i18next', 'prettier'],
+    rules: {
+        'react/jsx-indent': [2, 4],
+        'react/jsx-indent-props': [2, 4],
+        indent: [2, 4],
+        'react/jsx-filename-extension': [
+            2,
+            { extensions: ['.js', '.jsx', '.tsx'] },
+        ],
+        'import/no-unresolved': 'off',
+        'import/prefer-default-export': 'off',
+        'no-unused-vars': 'warn',
+        'react/require-default-props': 'off',
+        'react/react-in-jsx-scope': 'off',
+        'react/jsx-props-no-spreading': 'warn',
+        'react/function-component-definition': 'off',
+        'no-shadow': 'off',
+        'import/extensions': 'off',
+        'import/no-extraneous-dependencies': 'off',
+        'no-underscore-dangle': 'off',
+        'arrow-body-style': 'off',
+        'no-undef': 'off',
+        'consistent-return': 'off',
+        'i18next/no-literal-string': 'off',
+        'max-len': ['error', { ignoreComments: true, code: 100 }],
     },
-    'import/resolver': {
-      typescript: true,
-      node: {
-        paths: ['src'],
-        extensions: ['.js', '.jsx', '.ts', '.tsx'],
-      },
-    },
-  },
-  plugins: ['prettier'],
-  rules: {
-    'import/order': 'error',
-    'prettier/prettier': ['error', {}, { usePrettierrc: true }],
-    'react/react-in-jsx-scope': 'off',
-    'react/prop-types': 'off',
-    '@typescript-eslint/explicit-function-return-type': 'off',
-    'no-unused-vars': 'warn',
-    'no-console': 'warn',
-  },
-};
+}
