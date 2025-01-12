@@ -1,60 +1,63 @@
-import React from 'react';
-import { useForm } from 'react-hook-form';
-import FormField from '../../shared/ui/FormFields/FormFields';
-import styles from './EditTaskPage.module.scss';
-import { createFormHandlers } from '@/pages/edit-task/lib/formHandlers';
-import { TaskFieldNames } from '@/pages/edit-task/types/TaskPage.types';
-import { useTypedSelector } from '@/app/store/types/typedHooks';
-import { IEditTask } from '@/features/task/edit-task/types/types';
-import { selectorCurrentTaskById } from '@/features/task/edit-task/model/selectors';
-import { EditTask } from '@/features/task/edit-task';
-import { Button } from '@mui/material';
-import { Tags } from '@/shared/ui/Tags/Tags';
-import { Loader } from '@/shared/ui/Loader/Loader';
+import React from 'react'
+import { useForm } from 'react-hook-form'
+import { Button, CircularProgress } from '@mui/material'
+import FormField from '../../shared/ui/FormFields/FormFields'
+import styles from './EditTaskPage.module.scss'
+import { createFormHandlers } from '@/pages/edit-task/lib/formHandlers'
+import { TaskFieldNames } from '@/pages/edit-task/types/TaskPage.types'
+import { useTypedSelector } from '@/app/store/types/typedHooks'
+import { Tags } from '@/shared/ui/Tags/Tags'
+import { selectorCurrentTaskById } from '@/features/edit-task/model/selectors'
+import { ITask } from '@/shared/types/task/task'
+import { EditTask } from '@/features/edit-task'
 
 export const EditTaskPage: React.FC = () => {
-  const currentTaskById = useTypedSelector(selectorCurrentTaskById);
-  const isLoading = useTypedSelector((state) => state.currentTaskById.isLoading);
+  const currentTaskById = useTypedSelector(selectorCurrentTaskById)
+  const isLoading = useTypedSelector((state) => state.currentTaskById.isLoading)
 
-  const { handleSubmit, reset, control, setValue } = useForm<IEditTask>();
+  const { handleSubmit, reset, control, setValue } = useForm<ITask>()
 
-  const formHandlers = createFormHandlers(setValue);
+  const formHandlers = createFormHandlers(setValue)
 
-  const onSubmit = () => {};
+  const onSubmit = () => {}
 
+  // Нужно добавить кнопку для смены состояния редактирования editStatus
   return (
     <div className={styles.wrapper}>
       {isLoading ? (
-        <Loader />
+        <CircularProgress />
       ) : (
         <div>
           {currentTaskById?.editStatus ? (
-            <form onSubmit={handleSubmit(onSubmit)} className={styles.wrapperForm}>
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              className={styles.wrapperForm}
+            >
               <FormField
                 control={control}
                 name={TaskFieldNames.Name}
-                type={'text'}
+                type="text"
                 onChange={formHandlers.onNameTaskChange}
-                placeholder={'Название задачи'}
-                baseClass={'form-control'}
+                placeholder="Название задачи"
+                baseClass="form-control"
               />
               <FormField
                 control={control}
                 name={TaskFieldNames.Info}
-                type={'text'}
+                type="text"
                 onChange={formHandlers.onInfoTaskChange}
-                placeholder={'Описание задачи'}
-                baseClass={'form-control'}
+                placeholder="Описание задачи"
+                baseClass="form-control"
               />
               <div className={styles.checkboxs}>
                 <div className="form-group form-check">
                   <FormField
                     control={control}
                     name={TaskFieldNames.IsImportant}
-                    type={'checkbox'}
+                    type="checkbox"
                     onChange={formHandlers.onImportantStatusChange}
-                    baseClass={'form-check-input'}
-                    label={'Важная задача'}
+                    baseClass="form-check-input"
+                    label="Важная задача"
                     htmlFor={TaskFieldNames.IsImportant}
                   />
                 </div>
@@ -62,22 +65,29 @@ export const EditTaskPage: React.FC = () => {
                   <FormField
                     control={control}
                     name={TaskFieldNames.IsCompleted}
-                    type={'checkbox'}
+                    type="checkbox"
                     onChange={formHandlers.onCompletedStatusChange}
-                    baseClass={'form-check-input'}
-                    label={'Выполненная задача'}
+                    baseClass="form-check-input"
+                    label="Выполненная задача"
                     htmlFor={TaskFieldNames.IsCompleted}
                   />
                 </div>
               </div>
 
               <div className={styles.tags}>
-                <Tags isImportant={currentTaskById.importantStatus} isCompleted={currentTaskById.completedStatus} />
+                <Tags
+                  isImportant={currentTaskById.importantStatus}
+                  isCompleted={currentTaskById.completedStatus}
+                />
               </div>
             </form>
           ) : (
             <div>
-              {currentTaskById ? <EditTask optionEditedTask={currentTaskById} /> : 'Задача не найдена!'}
+              {currentTaskById ? (
+                <EditTask optionEditedTask={currentTaskById} />
+              ) : (
+                'Задача не найдена!'
+              )}
 
               <div className={styles.buttons}>
                 <Button type="submit">Сохранить</Button>
@@ -90,5 +100,5 @@ export const EditTaskPage: React.FC = () => {
         </div>
       )}
     </div>
-  );
-};
+  )
+}
