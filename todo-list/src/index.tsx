@@ -1,14 +1,15 @@
-import React from 'react';
-import { createRoot } from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import { App } from '@/app/App';
-import { setupStore } from '@/app/store/store';
+import React from 'react'
+import { createRoot } from 'react-dom/client'
+import { BrowserRouter } from 'react-router-dom'
+import { Provider } from 'react-redux'
+import { App } from '@/app/App'
+import { setupStore } from '@/app/store/store'
+import './firebase'
 
-const container = document.getElementById('root');
-const root = createRoot(container as HTMLElement);
+const container = document.getElementById('root')
+const root = createRoot(container as HTMLElement)
 
-const store = setupStore();
+const store = setupStore()
 
 root.render(
   <Provider store={store}>
@@ -16,4 +17,4 @@ root.render(
       <App />
     </BrowserRouter>
   </Provider>
-);
+)
