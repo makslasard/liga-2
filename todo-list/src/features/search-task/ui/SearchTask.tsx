@@ -2,23 +2,24 @@ import React, { ChangeEvent } from 'react'
 
 import { useForm } from 'react-hook-form'
 import { TextField, Typography } from '@mui/material'
-import { SearchInputForm } from '../types/types'
-import { getTaskBySearchQuery } from '../api/getTaskBySearchQuery'
+import { fetchTasksBySearchQuery } from '../api/fetchTasksBySearchQuery'
 
-import styles from './search-task.module.scss'
+import styles from './SearchTask.module.scss'
+import { useTypedDispatch } from '@/app/store/types/typedHooks'
 
 export const SearchTask: React.FC = () => {
-  const { setValue } = useForm<SearchInputForm>({
+  const { setValue } = useForm<{ searchQuery: string }>({
     defaultValues: { searchQuery: '' },
     mode: 'onChange',
   })
+  const dispatch = useTypedDispatch()
 
   const onNameChange = (evt: ChangeEvent<HTMLInputElement>) => {
     const { value } = evt.target
 
     setValue('searchQuery', value)
     // Оптимизация поиска useDebounce
-    getTaskBySearchQuery(value)
+    dispatch(fetchTasksBySearchQuery(value))
   }
 
   return (

@@ -1,29 +1,31 @@
-// Фильтрация задача по текущему фильтру
 import axios from 'axios'
-import { AppDispatch } from '@/app/store/store'
 import { Constants } from '@/shared/api/constants/constant'
-import { FilterType } from '@/features/select-filter/model/types/types'
 import { allTasksActions } from '@/widgets/task-list/model/allTasksSlice'
+import { ITask } from '@/shared/types/task/task'
+import { createAsyncThunk } from '@reduxjs/toolkit'
 
-export const getTasksByFilters =
-  (filter: FilterType) =>
-  async (dispatch: AppDispatch): Promise<void> => {
-    const url = Constants.BASE_URL
+export const fetchTasksBySearchQuery = createAsyncThunk(
+  'task/searchTask',
+  async (searchQuery: string, thunkAPI) => {
+    const url = Constants.BASE_URL_TASKS
+    const { dispatch, rejectWithValue } = thunkAPI
 
     dispatch(allTasksActions.changeIsLoading({ isLoading: true }))
     try {
-      const response = await axios.get(url, {
+      const response = await axios.get<ITask[]>(url, {
         params: {
-          filters: filter,
+          nameTask: searchQuery,
         },
       })
+
       dispatch(allTasksActions.setTasks({ allTasks: response.data }))
     } catch (e) {
       dispatch(
         allTasksActions.setErrorMessage({ message: `Произошла ошибка! - ${e}` })
       )
-      return null
+      return rejectWithValue(e)
     } finally {
       dispatch(allTasksActions.changeIsLoading({ isLoading: false }))
     }
   }
+)

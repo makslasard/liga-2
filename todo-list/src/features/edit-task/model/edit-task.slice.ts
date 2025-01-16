@@ -12,8 +12,11 @@ export const editTasksSlice = createSlice({
   name: 'editTask',
   initialState,
   reducers: {
-    setCurrentTaskById: (state, action: PayloadAction<ITask>) => {
-      state.currentTaskById = action.payload
+    setCurrentTaskById: (
+      state,
+      action: PayloadAction<{ currentTaskById: ITask }>
+    ) => {
+      state.currentTaskById = action.payload.currentTaskById
     },
     setErrorMessage: (state, action: PayloadAction<{ message: string }>) => {
       state.errorMessage = action.payload.message

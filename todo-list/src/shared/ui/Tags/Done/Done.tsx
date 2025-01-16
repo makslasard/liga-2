@@ -6,7 +6,7 @@ import { Typography } from '@mui/material'
 export const Done: React.FC = () => {
   return (
     <div className={styles.tag_container}>
-      <Typography variant="body2">Done</Typography>
+      <Typography variant="body2">Выполненная задача</Typography>
     </div>
   )
 }

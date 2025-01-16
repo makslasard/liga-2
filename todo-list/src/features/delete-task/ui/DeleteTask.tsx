@@ -1,19 +1,22 @@
 import React from 'react'
 import { Button } from '@mui/material'
-import { deleteTaskById } from '../api/deleteTaskById'
+import { fetchDeleteTaskById } from '../api/fetchDeleteTaskById'
 
 import styles from './DeleteTask.module.scss'
+import { useTypedDispatch } from '@/app/store/types/typedHooks'
 
 export const DeleteTask: React.FC<{ deleteTaskId: number }> = ({
-    deleteTaskId,
+  deleteTaskId,
 }) => {
-    const deleteTask = (deleteTaskId: number) => {
-        deleteTaskById(deleteTaskId)
-    }
+  const dispatch = useTypedDispatch()
 
-    return (
-        <div className={styles.wrapperButtonDelete}>
-            <Button onClick={() => deleteTask(deleteTaskId)}>Удалить задачу</Button>
-        </div>
-    )
+  const deleteTask = (deleteTaskId: number) => {
+    dispatch(fetchDeleteTaskById(deleteTaskId))
+  }
+
+  return (
+    <div className={styles.wrapperButtonDelete}>
+      <Button onClick={() => deleteTask(deleteTaskId)}>Удалить задачу</Button>
+    </div>
+  )
 }

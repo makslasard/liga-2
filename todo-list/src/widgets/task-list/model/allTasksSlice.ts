@@ -45,7 +45,7 @@ export const allTasksSlice = createSlice({
       state.allTasks.unshift(action.payload.newTask)
     },
 
-    deleteTask: (state, action: PayloadAction<{ id: number | undefined }>) => {
+    deleteTask: (state, action: PayloadAction<{ id: number | string }>) => {
       const taskIndex = state.allTasks.findIndex(
         (item) => item.id === action.payload.id
       )

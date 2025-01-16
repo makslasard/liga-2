@@ -8,7 +8,6 @@ import {
   TextField,
   Typography,
 } from '@mui/material'
-import { setNewTask } from '../model/api/setNewTask'
 import { createFormHandlers } from '@/pages/edit-task/lib/formHandlers'
 import { TaskFieldNames } from '@/pages/edit-task/types/TaskPage.types'
 
@@ -18,18 +17,19 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { ITask } from '@/shared/types/task/task'
 import { defaultValueTaskForm } from '@/widgets/form/model/types/form'
 import { validationFormAddTask } from '@/features/create-task/lib/validationFormAddTask'
+import { fetchAddNewTask } from '@/features/create-task/model/api/fetchAddNewTask'
 
 export const CreateTask: React.FC = () => {
+  const dispatch = useTypedDispatch()
   const { handleSubmit, reset, setValue } = useForm<ITask>({
     defaultValues: defaultValueTaskForm,
     mode: 'onChange',
     // @ts-ignore
     resolver: yupResolver(validationFormAddTask),
   })
-  const dispatch = useTypedDispatch()
 
   const onSubmit = (data: ITask) => {
-    dispatch(setNewTask(data))
+    dispatch(fetchAddNewTask(data))
 
     reset()
   }

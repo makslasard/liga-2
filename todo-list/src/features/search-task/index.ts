@@ -1,1 +1,1 @@
-export { SearchTask } from './ui/search-task';
+export { SearchTask } from './ui/SearchTask'

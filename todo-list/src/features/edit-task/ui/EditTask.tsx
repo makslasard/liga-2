@@ -1,7 +1,6 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import { Button, Checkbox, Input } from '@mui/material'
-import { updateTaskById } from '../api/updateTaskById'
 import { IEditTaskProps } from '../types/types'
 import { DeleteTask } from '../../delete-task'
 import { createFormHandlers } from '@/pages/edit-task/lib/formHandlers'
@@ -9,6 +8,8 @@ import { Tags } from '@/shared/ui/Tags/Tags'
 import { ITask } from '@/shared/types/task/task'
 
 import styles from './EditTask.module.scss'
+import { fetchUpdateTaskById } from '@/features/edit-task/api/fetchUpdateTaskById'
+import { useTypedDispatch } from '@/app/store/types/typedHooks'
 
 export const EditTask: React.FC<IEditTaskProps> = ({ optionEditedTask }) => {
   const { id, nameTask, infoTask, importantStatus, completedStatus } =
@@ -19,11 +20,11 @@ export const EditTask: React.FC<IEditTaskProps> = ({ optionEditedTask }) => {
     mode: 'onChange',
     // resolver: yupResolver(validationFormAddTask),
   })
-
+  const dispatch = useTypedDispatch()
   const formHandlers = createFormHandlers(setValue)
 
   const onSubmit = (data: ITask) => {
-    updateTaskById(data, data.id)
+    dispatch(fetchUpdateTaskById(data))
   }
 
   // Рассмотреть вариант вынести в отдельный компонент <createTaskForm />
