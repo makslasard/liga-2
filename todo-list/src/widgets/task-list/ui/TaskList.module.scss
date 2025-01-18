@@ -1,0 +1,14 @@
+.container_list {
+  max-width: 100%;
+  margin-bottom: 30px;
+
+  .tasks_list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .task {
+
+    }
+  }
+}

@@ -1,11 +1,6 @@
-.wrapper {
+.tag_container {
   display: flex;
-
-  span {
-    width: 100%;
-    height: 100%;
-    padding: 5px 15px;
-    background-color: brown;
-    color: #fff;
-  }
+  padding: 5px 15px;
+  background-color: brown;
+  color: #fff;
 }

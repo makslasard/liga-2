@@ -1,17 +1,28 @@
 import React from 'react'
-import { Route, Routes } from 'react-router-dom'
-import { publicRoutes } from '@/app/providers/router/router'
+import { Navigate, Route, Routes } from 'react-router-dom'
+import { privateRoutes, publicRoutes } from '@/app/providers/router/router'
 
 export const AppRouter: React.FC = () => {
-    return (
-        <Routes>
-            {publicRoutes.map((router) => (
-                <Route
-                    path={router.path}
-                    element={router.component}
-                    key={router.path}
-                />
-            ))}
-        </Routes>
-    )
+  // const isAuthUser = useTypedSelector(selectorUserIsAuth)
+  const isAuthUser = true
+  return (
+    <Routes>
+      {isAuthUser
+        ? privateRoutes.map((router) => (
+            <Route
+              key={router.path}
+              path={router.path}
+              element={<router.component />}
+            />
+          ))
+        : publicRoutes.map((router) => (
+            <Route
+              key={router.path}
+              path={router.path}
+              element={<router.component />}
+            />
+          ))}
+      <Route path="*" element={<Navigate to={isAuthUser ? '/tasks' : '/'} />} />
+    </Routes>
+  )
 }

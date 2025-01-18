@@ -1,12 +1,18 @@
-import React from 'react';
+import React from 'react'
 
-import './styles/index.scss';
-import { AppRouter } from '@/app/providers/router/AppRouter/AppRouter';
+import { Container } from '@mui/material'
+import { AppRouter } from '@/app/providers/router/AppRouter/AppRouter'
+
+import styles from './App.module.scss'
+import { Navbar } from '@/widgets/navbar/ui/Navbar'
 
 export const App: React.FC = () => {
   return (
-    <div className="page-wrapper">
-      <AppRouter />
+    <div className={styles.container_app}>
+      <Container maxWidth="sm">
+        <Navbar />
+        <AppRouter />
+      </Container>
     </div>
-  );
-};
+  )
+}

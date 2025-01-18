@@ -1,11 +1,12 @@
-import React from 'react';
+import React from 'react'
 
-import styles from './Done.module.scss';
+import styles from './Done.module.scss'
+import { Typography } from '@mui/material'
 
 export const Done: React.FC = () => {
   return (
-    <div className={styles.wrapper}>
-      <span>Completed</span>
+    <div className={styles.tag_container}>
+      <Typography variant="body2">Выполненная задача</Typography>
     </div>
-  );
-};
+  )
+}

@@ -1,23 +1,22 @@
-import React from 'react';
+import React from 'react'
+import { Header } from '@/widgets/header'
 
-import { Header } from '../../widgets/header/ui/header';
-import { TaskList } from '../../features/task/task-list/ui/task-list';
-import { PaginationBase } from '../../features/pagination';
-
-import styles from './HomePage.module.scss';
+import styles from './HomePage.module.scss'
+import { TaskList } from '@/widgets/task-list/ui/TaskList'
+import { Pagination } from '@/features/pagination/ui/Pagination'
 
 export const HomePage: React.FC = () => {
   return (
-    <div className={styles.wrapper}>
-      <div>
+    <div className={styles.container_home}>
+      <header>
         <Header />
-      </div>
-      <div>
+      </header>
+      <main>
         <TaskList />
-      </div>
-      <div>
-        <PaginationBase />
-      </div>
+      </main>
+      <footer>
+        <Pagination />
+      </footer>
     </div>
-  );
-};
+  )
+}

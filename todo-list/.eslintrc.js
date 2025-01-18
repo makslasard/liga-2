@@ -35,6 +35,8 @@ module.exports = {
         'no-underscore-dangle': 'off',
         'arrow-body-style': 'off',
         'no-undef': 'off',
+        'react/no-array-index-key': 'off',
+        'no-param-reassign': 'off',
         'consistent-return': 'off',
         'i18next/no-literal-string': 'off',
         'max-len': ['error', { ignoreComments: true, code: 100 }],

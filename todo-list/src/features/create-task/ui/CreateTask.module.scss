@@ -1,0 +1,43 @@
+.container_form {
+  padding: 20px;
+  border: 1px solid gray;
+  border-radius: 5px;
+
+  .form {
+    .group_fields {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      .field_name {
+      }
+
+      .field_info {
+      }
+    }
+
+    .checkboxes_group {
+      .checkbox_controls {
+        display: flex;
+
+        .checkbox_important {
+        }
+
+        .checkbox_completed {
+        }
+      }
+    }
+
+    .buttons_group {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+
+      .button_submit {
+      }
+
+      .button_reset {
+      }
+    }
+  }
+}

@@ -1,9 +1,9 @@
-import React from 'react';
+import React from 'react'
 
-import { CreateTask } from '../../../features/task/create-task/ui/create-task';
-import { SearchTask } from '../../../features/input/search-task/ui/search-task';
-import { SelectFilter } from '../../../features/select/select-filter/ui/select-filter';
-import styles from './header.module.scss';
+import styles from './header.module.scss'
+import { CreateTask } from '@/features/create-task'
+import { SearchTask } from '@/features/search-task'
+import { SelectFilters } from '@/features/select-filter'
 
 export const Header: React.FC = () => {
   return (
@@ -11,13 +11,12 @@ export const Header: React.FC = () => {
       <div>
         <CreateTask />
       </div>
-      <hr />
       <div>
         <SearchTask />
       </div>
       <div>
-        <SelectFilter />
+        <SelectFilters />
       </div>
     </div>
-  );
-};
+  )
+}

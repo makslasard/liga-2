@@ -1,0 +1,7 @@
+@use "styles/variables/global";
+
+.container_app {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+}
