@@ -12,7 +12,7 @@ import { FilterType } from '@/features/select-filter/model/types/types'
 import {
   selectorFiltersCurrentFilter,
   selectorFiltersTaskList,
-} from '@/features/select-filter/model/selectors/filterTaskListSelector'
+} from '@/features/select-filter/model/selectors/selectors'
 
 export const SelectFilters: React.FC = () => {
   const filtersList = useTypedSelector(selectorFiltersTaskList)
@@ -22,8 +22,6 @@ export const SelectFilters: React.FC = () => {
   const changeFilter = (filter: FilterType) => {
     dispatch(filtersTasksActions.changeFilter(filter))
     dispatch(fetchTasksByFilter(filter))
-
-    console.log(filter)
   }
 
   console.log(currentFilter)
@@ -37,9 +35,9 @@ export const SelectFilters: React.FC = () => {
         variant="outlined"
         value={currentFilter.nameFilter}
       >
-        {filtersList?.map((filter: FilterType, indexFilter: number) => (
+        {filtersList?.map((filter: FilterType) => (
           <MenuItem
-            key={indexFilter}
+            key={filter.keyFilter}
             value={filter.nameFilter}
             onClick={() => changeFilter(filter)}
           >

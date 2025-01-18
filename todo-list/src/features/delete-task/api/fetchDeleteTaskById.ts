@@ -1,19 +1,21 @@
 // Удаление задачи по id
-import axios from 'axios'
-import { Constants } from '@/shared/api/constants/constant'
+import { EndpontsFirebase } from '@/shared/api/constants/constant'
 import { allTasksActions } from '@/widgets/task-list/model/allTasksSlice'
 
 import { createAsyncThunk } from '@reduxjs/toolkit'
+import { deleteDoc, doc } from 'firebase/firestore'
+import { db } from '@/firebase'
 
 export const fetchDeleteTaskById = createAsyncThunk(
   'task/deleteTaskById',
-  async (taskId: number | string, thunkAPI) => {
-    const url = `${Constants.BASE_URL_TASKS}/${taskId}`
+  async (taskId: string, thunkAPI) => {
     const { dispatch, rejectWithValue } = thunkAPI
 
     dispatch(allTasksActions.changeIsLoading({ isLoading: true }))
     try {
-      await axios.delete(url)
+      const querySnapshot = await deleteDoc(
+        doc(db, EndpontsFirebase.COLLECTION_TASKS, taskId)
+      )
 
       dispatch(allTasksActions.deleteTask({ id: taskId }))
     } catch (e) {

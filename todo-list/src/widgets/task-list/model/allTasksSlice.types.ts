@@ -4,4 +4,5 @@ export interface IAllTaskState {
   allTasks: ITask[]
   isLoading: boolean
   errorMessage: string
+  totalCountTasks: number
 }

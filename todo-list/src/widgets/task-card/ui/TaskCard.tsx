@@ -10,9 +10,11 @@ import MoreVertIcon from '@mui/icons-material/MoreVert'
 import { Tags } from '@/shared/ui/Tags/Tags'
 import React from 'react'
 import { ITask } from '@/shared/types/task/task'
+import { DeleteTask } from '@/features/delete-task'
 
 export const TaskCard = ({ optionTask }: { optionTask: ITask }) => {
-  const { nameTask, infoTask, importantStatus, completedStatus } = optionTask
+  const { id, nameTask, infoTask, importantStatus, completedStatus } =
+    optionTask
 
   return (
     <div className={styles.task}>
@@ -32,6 +34,7 @@ export const TaskCard = ({ optionTask }: { optionTask: ITask }) => {
         <CardContent>
           <Typography variant="h6">{infoTask}</Typography>
           <Tags isImportant={importantStatus} isCompleted={completedStatus} />
+          <DeleteTask deleteTaskId={id} />
         </CardContent>
       </Card>
     </div>

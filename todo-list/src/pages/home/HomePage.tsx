@@ -1,10 +1,9 @@
 import React from 'react'
-
-import { Pagination } from '@mui/material'
 import { Header } from '@/widgets/header'
 
 import styles from './HomePage.module.scss'
 import { TaskList } from '@/widgets/task-list/ui/TaskList'
+import { Pagination } from '@/features/pagination/ui/Pagination'
 
 export const HomePage: React.FC = () => {
   return (
@@ -16,7 +15,7 @@ export const HomePage: React.FC = () => {
         <TaskList />
       </main>
       <footer>
-        <Pagination count={10} shape="rounded" />
+        <Pagination />
       </footer>
     </div>
   )

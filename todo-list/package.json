@@ -12,8 +12,7 @@
     "lint:ts": "eslint \"**/*.{ts,tsx}\"",
     "lint:ts:fix": "eslint \"**/*.{ts,tsx}\" --fix",
     "lint:scss": "npx stylelint \"**/*.scss\"",
-    "lint:scss:fix": "npx stylelint \"**/*.scss\" --fix",
-    "json-server": "json-server --watch db.json --port 3005"
+    "lint:scss:fix": "npx stylelint \"**/*.scss\" --fix"
   },
   "keywords": [],
   "author": "",
@@ -26,9 +25,10 @@
     "@emotion/styled": "^11.14.0",
     "@eslint/js": "^9.17.0",
     "@hookform/resolvers": "^3.9.1",
-    "@mui/material": "^6.3.0",
+    "@mui/material": "^6.4.0",
     "@reduxjs/toolkit": "^2.5.0",
     "@types/babel__core": "^7.20.3",
+    "@types/dotenv-webpack": "^7.0.8",
     "@types/node": "^20.8.3",
     "@types/react": "^18.2.25",
     "@types/react-dom": "^18.2.11",
@@ -54,6 +54,7 @@
     "globals": "^15.13.0",
     "html-webpack-plugin": "^5.5.3",
     "mini-css-extract-plugin": "^2.7.6",
+    "nanoid": "^5.0.9",
     "react-redux": "^9.2.0",
     "react-refresh-typescript": "^2.0.9",
     "react-router-dom": "^6.16.0",
@@ -73,9 +74,10 @@
     "yup": "^1.6.1"
   },
   "dependencies": {
-    "@mui/icons-material": "^6.3.0",
+    "@mui/icons-material": "^6.4.0",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.11",
     "@svgr/webpack": "^8.1.0",
+    "dotenv": "^16.4.7",
     "firebase": "^11.1.0",
     "fork-ts-checker-webpack-plugin": "^9.0.0",
     "react": "^18.2.0",

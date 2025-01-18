@@ -24,9 +24,7 @@ export const TaskList: React.FC = () => {
       <Typography variant="h4">Список задач:</Typography>
       <div className={styles.tasks_list}>
         {allTasks.map((task: ITask) => (
-          <div key={task.id}>
-            <TaskCard optionTask={task} />
-          </div>
+          <TaskCard key={task.id} optionTask={task} />
         ))}
       </div>
     </div>

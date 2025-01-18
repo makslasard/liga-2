@@ -1,21 +1,33 @@
 // Добавление новой задачи
-import axios from 'axios'
-import { Constants } from '@/shared/api/constants/constant'
+import { EndpontsFirebase } from '@/shared/api/constants/constant'
 import { ITask } from '@/shared/types/task/task'
 import { allTasksActions } from '@/widgets/task-list/model/allTasksSlice'
 import { createAsyncThunk } from '@reduxjs/toolkit'
+import { addDoc, collection, doc, updateDoc } from 'firebase/firestore'
+import { db } from '@/firebase'
 
 export const fetchAddNewTask = createAsyncThunk(
   'task/addNewTask',
   async (newTask: ITask, thunkAPI) => {
-    const url = Constants.BASE_URL_TASKS
     const { dispatch, rejectWithValue } = thunkAPI
 
     dispatch(allTasksActions.changeIsLoading({ isLoading: true }))
     try {
-      const response = await axios.post(url, newTask)
+      // Создание задачи без id
+      const querySnapshot = await addDoc(
+        collection(db, EndpontsFirebase.COLLECTION_TASKS),
+        newTask
+      )
+      const firebaseDocumentID = querySnapshot.id
+      const updatedTaskByFirebaseID = { id: firebaseDocumentID, ...newTask }
 
-      dispatch(allTasksActions.addTask({ newTask: response.data }))
+      // Обновление задачи c добавлением id документа
+      await updateDoc(
+        doc(db, EndpontsFirebase.COLLECTION_TASKS, firebaseDocumentID),
+        updatedTaskByFirebaseID
+      )
+
+      dispatch(allTasksActions.addTask({ newTask: updatedTaskByFirebaseID }))
     } catch (e) {
       dispatch(
         allTasksActions.setErrorMessage({ message: `Произошла ошибка! - ${e}` })

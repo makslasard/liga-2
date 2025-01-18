@@ -6,6 +6,7 @@ const initialState: IAllTaskState = {
   allTasks: [],
   isLoading: false,
   errorMessage: '',
+  totalCountTasks: 0,
 }
 
 export const allTasksSlice = createSlice({
@@ -45,13 +46,14 @@ export const allTasksSlice = createSlice({
       state.allTasks.unshift(action.payload.newTask)
     },
 
-    deleteTask: (state, action: PayloadAction<{ id: number | string }>) => {
-      const taskIndex = state.allTasks.findIndex(
-        (item) => item.id === action.payload.id
+    setTotalCount: (state, action: PayloadAction<{ totalCount: number }>) => {
+      state.totalCountTasks = action.payload.totalCount
+    },
+
+    deleteTask: (state, action: PayloadAction<{ id: string }>) => {
+      state.allTasks = state.allTasks.filter(
+        (task) => task.id !== action.payload.id
       )
-      if (taskIndex !== -1) {
-        state.allTasks.splice(taskIndex, 1)
-      }
       return state
     },
   },

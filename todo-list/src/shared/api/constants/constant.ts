@@ -9,3 +9,7 @@ export const MethodApi = {
   PUT: 'PUT',
   DELETE: 'DELETE',
 }
+
+export const EndpontsFirebase = {
+  COLLECTION_TASKS: 'tasks',
+}
