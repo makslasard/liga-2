@@ -8,6 +8,8 @@ import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
 import path from 'path'
 import CopyPlugin from 'copy-webpack-plugin'
 
+import Dotenv from 'dotenv-webpack'
+
 export function buildPlugins({
   mode,
   paths,
@@ -26,15 +28,8 @@ export function buildPlugins({
       __PLATFORM__: JSON.stringify(platform),
       __ENV__: JSON.stringify(mode),
     }),
-    new webpack.EnvironmentPlugin({
-      REACT_APP_FIREBASE_API_KEY: 'ERROR_ENV_FIREBASE_API_KEY',
-      REACT_APP_FIREBASE_AUTH_DOMAIN: 'ERROR_ENV_FIREBASE_AUTH_DOMAIN',
-      REACT_APP_FIREBASE_PROJECT_ID: 'ERROR_ENV_FIREBASE_PROJECT_ID',
-      REACT_APP_FIREBASE_STORAGE_BUCKET: 'ERROR_ENV_FIREBASE_STORAGE_BUCKET',
-      REACT_APP_FIREBASE_MESSAGING_SENDER_ID:
-        'ERROR_ENV_FIREBASE_MESSAGING_SENDER_ID',
-      REACT_APP_FIREBASE_APP_ID: 'ERROR_ENV_FIREBASE_APP_ID',
-    }),
+
+    new Dotenv(),
   ]
 
   if (isDev) {
