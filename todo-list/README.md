@@ -20,7 +20,7 @@ Webpack, Eslint, Prettier
 ├── config
 │   ├── constants.js                           # константные пути к файлам и папкам
 │   ├── css.modules.config.js                   # конфигурация css modules
-│   ├── jest.config.js                          # конфигурация jest
+│   ├── jest.config.ts                          # конфигурация jest
 │   ├── postcss.config.js                       # конфигурация postcss
 │   ├── svgo.config.js                          # конфигурация обработки svg
 │   ├── test.config.js                          # конфигурация окружения Jest, React Testing Library
